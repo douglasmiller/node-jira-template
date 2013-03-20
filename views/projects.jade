@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= title
+  p All Projects in Jira
+  form(method="post", action="transfer")
+    div
+      label(for="template") Template Project: 
+      select(id="template",name="template")
+        each item in templates
+          option(value=item.key)= item.name
+    div
+      label(for="desintation") Target Project: 
+      select(id="destination",name="destination")
+        each item in projects
+          option(value=item.key)= item.name
+    div
+      input(type="submit", value="Copy Tempalte Issues")
+
