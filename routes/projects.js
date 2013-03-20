@@ -1,4 +1,4 @@
-config = require('./config);
+config = require('../config');
 
 JiraApi = require('jira').JiraApi;
 var url = require('url');
