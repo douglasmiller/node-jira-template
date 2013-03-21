@@ -1,7 +1,43 @@
+.std-radius {
+  border-radius: 4px;
+}
+.std-shadow {
+  box-shadow: 2px 2px 3px #444;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.std-padding {
+  padding: 10px;
+}
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 a {
   color: #00B7FF;
+}
+header {
+  background: orangered;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+#page {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+  box-shadow: 2px 2px 3px #444;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+#page form {
+  border: 1px solid #ccc;
+  padding: 0 10px;
+}
+#page form div {
+  text-align: right;
+  padding: 5px;
+}
+#page form label {
+  float: left;
 }

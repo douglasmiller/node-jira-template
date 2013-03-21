@@ -7,7 +7,8 @@ var express = require('express')
   , routes = require('./routes')
   , projects = require('./routes/projects')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , config = require('./config');
 
 var app = express();
 
@@ -26,6 +27,14 @@ app.configure(function(){
 
 app.configure('development', function(){
   app.use(express.errorHandler());
+});
+
+app.use(function (req, res, next) {
+  res.send('hi');
+});
+
+app.use(function (req, res, next) {
+  console.log('hey');
 });
 
 app.get('/', projects.fetch);

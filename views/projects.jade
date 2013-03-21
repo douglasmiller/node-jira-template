@@ -1,8 +1,10 @@
 extends layout
 
 block content
-  h1= title
-  p All Projects in Jira
+  header
+    h1= title
+  p This tools allow you to clone all of the issues from the template project into the destination project. Issue links and GreenHopper Epic links are preserved in the transfer.
+  p Only projects with a key beginning with TMPL will be considered templates.
   form(method="post", action="transfer")
     div
       label(for="template") Template Project: 
@@ -10,10 +12,10 @@ block content
         each item in templates
           option(value=item.key)= item.name
     div
-      label(for="desintation") Target Project: 
+      label(for="desintation") Destination Project: 
       select(id="destination",name="destination")
         each item in projects
           option(value=item.key)= item.name
     div
-      input(type="submit", value="Copy Tempalte Issues")
+      input(type="submit", value="Clone Template Issues")
 

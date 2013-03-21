@@ -1,5 +1,4 @@
 config = require('../config');
-
 JiraApi = require('jira').JiraApi;
 var url = require('url');
 (function () {
@@ -44,7 +43,8 @@ var url = require('url');
 
 }).call(JiraApi.prototype);
 
-var jira = new JiraApi('https', config.jira.host, config.jira.port, config.jira.user, config.jira.password, '2', true);
+jira = new JiraApi('https', config.jira.host, config.jira.port, config.jira.user, config.jira.password, '2', true);
+
 
 exports.fetch = function (req, res){
   //@TODO: deal with errors
@@ -61,7 +61,7 @@ exports.fetch = function (req, res){
         }
         projects.push(item);
     }
-    res.render('projects', { title: 'Projects', projects: projects, templates: templates });
+    res.render('projects', { title: 'Project Issue Transfer Tool', projects: projects, templates: templates });
   });
 };
 
