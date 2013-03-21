@@ -29,14 +29,6 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.use(function (req, res, next) {
-  res.send('hi');
-});
-
-app.use(function (req, res, next) {
-  console.log('hey');
-});
-
 app.get('/', projects.fetch);
 app.post('/transfer', projects.transfer);
 
