@@ -12,7 +12,6 @@ var url = require('url');
         };
 
         this.request(options, function(error, response, body) {
-            console.log(error);
             if (response.statusCode === 200 || response.statusCode === 204) {
                 callback(null, body);
                 return;

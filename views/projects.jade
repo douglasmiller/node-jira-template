@@ -5,7 +5,7 @@ block content
     h1= title
   p This tools allow you to clone all of the issues from the template project into the destination project. Issue links and GreenHopper Epic links are preserved in the transfer.
   p Only projects with a key beginning with TMPL will be considered templates.
-  form(method="post", action="transfer")
+  form(method="post", action="/pitt/transfer")
     div
       label(for="template") Template Project: 
       select(id="template",name="template")
