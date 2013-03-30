@@ -22,7 +22,7 @@ app.configure(function(){
   app.use(express.methodOverride());
   app.use(app.router);
   app.use(require('less-middleware')({ src: __dirname + '/public' }));
-  app.use(express.static(path.join(__dirname, 'public')));
+  app.use('/pitt', express.static(path.join(__dirname, 'public')));
 });
 
 app.configure('development', function(){
