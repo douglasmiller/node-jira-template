@@ -80,6 +80,7 @@ exports.transfer = function (req, res) {
         //"description", 
         //"customfield_10101", 
         //"customfield_10100", 
+        //"parent", 
         //"components",
         //"issuetype", 
         //"issuelinks"
@@ -108,7 +109,7 @@ exports.transfer = function (req, res) {
           "xfersource": item.key
         }
         if (item.fields.issuetype.name != "Epic"){
-          if (item.fields.customfield_10100 !== undefined && xfered[item.fields.customfield_10100] === undefined) {
+          if (item.fields.customfield_10100 !== undefined && item.fields.customfield_10100 && xfered[item.fields.customfield_10100] === undefined) {
             setTimeout(function () {
               doit(item);
             }, 500);
@@ -117,6 +118,19 @@ exports.transfer = function (req, res) {
           else if (xfered[item.fields.customfield_10100] !== undefined) {
             //@TODO: Figure out how to set this field. It is the agile board epic
             //issue.fields.customfield_10100 = xfered[item.fields.customfield_10100].key;
+          }
+
+          //reschedule issues with parents until the parent exists
+          if (item.fields.issuetype.subtask) {
+            if (xfered[item.fields.parent.key] === undefined) {
+              setTimeout(function () {
+                doit(item);
+              }, 500);
+              return;
+            }
+            else {
+              issue.fields.parent = xfered[item.fields.parent.key];
+            }
           }
         }
 
